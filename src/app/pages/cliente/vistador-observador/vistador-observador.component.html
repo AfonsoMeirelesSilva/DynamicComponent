@@ -1,0 +1,53 @@
+<h1>Vistador/Observador</h1>
+
+
+<section class="example-section">
+  Sem E-CPF&nbsp; <mat-slide-toggle  [(ngModel)]="comEcpf" class="example-margin"  color="primary"> Com E-CPF  </mat-slide-toggle>
+</section>
+
+<form novalidate [formGroup]="form" (ngSubmit)="inserirRegistro()">
+
+
+<div class="example-container">
+  <mat-form-field hintLabel="Max 50 characters" appearance="fill" class="col-6">
+    <mat-label>Nome</mat-label>
+    <input matInput #nome maxlength="50" formControlName="nome" height="40cm">
+    <mat-hint align="end">{{nome.value?.length || 0}}/50</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 50 characters" appearance="fill" class="col-6">
+    <mat-label>Email</mat-label>
+    <input matInput #email maxlength="50" formControlName="email">
+    <mat-hint align="end">{{email.value?.length || 0}}/50</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 50 characters" appearance="fill" class="col-6">
+    <mat-label>Cpf</mat-label>
+    <input matInput #cpf maxlength="11" formControlName="cpf">
+    <mat-hint align="end">{{cpf.value?.length || 0}}/11</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="col-6">
+    <mat-label>Tipo</mat-label>
+    <mat-select formControlName="tipo">
+      <mat-option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.Descricao}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+  
+  <button mat-flat-button class="btn btn-success mr-3" type="submit" *ngIf="this.insert">Inserir</button>
+  <button  *ngIf="this.update" (click)="atualizarRegistro()" >Atualizar</button>
+</div>
+</form>
+
+<div class ="row" *ngFor="let element of objs.clientes ">
+  <span>{{element.nome}} -> </span>
+  <span>{{element.email}} -> </span>
+  <span>{{element.cpf}} --></span>
+  <span>{{element.tipo}}</span>
+  <button (click)="editar(element)">Editar</button>
+  <button (click)="excluir(element)">Excluir</button>
+</div>
+
+

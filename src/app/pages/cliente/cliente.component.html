@@ -1,0 +1,33 @@
+<section class="example-section" [formGroup]="formalizacao">
+    <h4>Select your toppings:</h4>
+    <p>
+        <mat-checkbox formControlName="f1" color="primary">Formalizacao 1</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="f2" color="primary">Formalizacao 2</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="f3" color="primary">Formalizacao 3</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="f4" color="primary">Formalizacao 4</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="f5" color="primary">COM Certisign</mat-checkbox>
+    </p>
+    <p>
+        <mat-checkbox formControlName="f6" color="primary">Sem Certisign</mat-checkbox>
+    </p>
+</section>
+<!-- <section class="example-section" [formGroup]="toppings">
+    <h4>You chose:</h4>
+    {{toppings.value | json}}
+</section> -->
+
+<vistador-observador *ngIf="this.comCertisign || this.semCertisign" 
+[objs]="this.objAlterado"
+(objetoAlterado)="objetoAlterado($event)">
+</vistador-observador>
+<button (click)="salvar()">Salvar</button>
+
+<loader [isLoading]="this.isLoading"></loader>
