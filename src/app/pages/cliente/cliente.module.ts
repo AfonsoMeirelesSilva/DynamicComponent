@@ -9,7 +9,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { LoaderComponent } from 'src/app/pages/cliente/loader/loader.component';
 import { ClienteComponent } from './cliente.component';
 import { ClienteRoutingModule } from './cliente.routes';
+import { VistadorObservadorCrudComponent } from './vistador-observador-crud/vistador-observador-crud.component';
 import { VistadorObservadorComponent } from './vistador-observador/vistador-observador.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   imports: [
     CommonModule,
@@ -20,12 +23,15 @@ import { VistadorObservadorComponent } from './vistador-observador/vistador-obse
     ReactiveFormsModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    FormsModule 
+    FormsModule, 
+    MatDialogModule,
+    MatIconModule    
   ],
   declarations: [
     ClienteComponent,
     LoaderComponent,
-    VistadorObservadorComponent
+    VistadorObservadorComponent,
+    VistadorObservadorCrudComponent
   ]
 })
 export class ClienteModule { }

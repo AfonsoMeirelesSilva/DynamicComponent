@@ -1,0 +1,42 @@
+
+<H1> Cadastre um novo Vistador ou Observador</H1>
+<form  [formGroup]="form" (ngSubmit)="inserirRegistro()">
+
+
+  <div class="example-container">
+    <mat-form-field hintLabel="Max 50 characters" appearance="fill" class="col-6">
+      <mat-label>Nome</mat-label>
+      <input matInput #nome maxlength="50" formControlName="nome" height="40cm">
+      <mat-hint align="end">{{nome.value?.length || 0}}/50</mat-hint>
+      <mat-error *ngIf="checkError('nome', 'required')">Nome é obrigatório</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field hintLabel="Max 50 characters" appearance="fill" class="col-6">
+      <mat-label>Email</mat-label>
+      <input matInput #email maxlength="50" formControlName="email">
+      <mat-hint align="end">{{email.value?.length || 0}}/50</mat-hint>
+      <mat-error *ngIf="checkError('email', 'required')">Email é obrigatório</mat-error>
+      <mat-error *ngIf="checkError('email', 'email')">Email inválido</mat-error>
+
+    </mat-form-field>
+  
+    <mat-form-field hintLabel="Max 50 characters" appearance="fill" class="col-6">
+      <mat-label>Cpf</mat-label>
+      <input matInput #cpf maxlength="11" formControlName="cpf">
+      <mat-hint align="end">{{cpf.value?.length || 0}}/11</mat-hint>
+      <mat-error *ngIf="checkError('cpf', 'required')">CPF é obrigatório</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="col-6">
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="tipo">
+        <mat-option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.Descricao}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="checkError('tipo', 'required')">Tipo é obrigatório</mat-error>
+    </mat-form-field>
+  
+    
+    
+    <button mat-flat-button class="btn btn-success mr-3" type="submit" >Inserir</button>
+  </div>
+  </form>
