@@ -46,8 +46,7 @@ export class VistadorObservadorCrudComponent implements OnInit {
       tipo: [this.isEdit ? this.editCliente.tipo : '',Validators.required],
     });
   }
-
-  inserirRegistro() {
+inserirRegistro() {
     if(this.form.valid){
       console.log(this.form.value)
       this.dialogRef.close(this.form.value)

@@ -31,7 +31,6 @@ export class VistadorObservadorComponent implements OnInit {
 
   ngOnInit() {
     this.objs = this.objs || new objVistadorObservador
-    console.log(this.objs)
     this.comEcpf = this.objs.ecpf
     this.isEdit = this.editClient ? true : false
 
@@ -43,28 +42,9 @@ export class VistadorObservadorComponent implements OnInit {
       if (result) {
         this.objs.clientes.push(result)
         this.objs.ecpf = this.comEcpf;
-        // this.emitirEvento()
+        this.emitirEvento()
       }
     })
-  }
-
-  // inserirRegistro() {
-  // this.cliente = Object.assign({}, this.cliente, this.form.value);
-  // console.log("CLIENTE INSERIDO ", this.cliente)
-  // this.objs.clientes.push(this.cliente)
-  // this.objs.ecpf = this.comEcpf;
-  // this.form.reset()
-  // this.emitirEvento()
-  // }
-
-  atualizarRegistro() {
-    // update item in list and emit event
-    // const index = this.objs.clientes.indexOf(this.editClient)
-    // let cliente = Object.assign({}, this.objs, this.form.value, );
-    // this.objs.clientes[index] = cliente;
-    // this.camposInserir()
-    // this.form.reset()
-    // this.emitirEvento()
   }
 
   editar(editarCliente: Cliente) {
@@ -75,7 +55,7 @@ export class VistadorObservadorComponent implements OnInit {
       if (result) {
         const index = this.objs.clientes.indexOf(editarCliente)
         this.objs.clientes[index] = result
-        // this.emitirEvento()
+        this.emitirEvento()
       }
     })
 
@@ -86,17 +66,6 @@ export class VistadorObservadorComponent implements OnInit {
     this.emitirEvento()
   }
 
-
-  private camposEditar() {
-    this.isEdit = true
-    this.insert = false
-    this.update = true
-  }
-  private camposInserir() {
-    this.isEdit = false
-    this.insert = true
-    this.update = false
-  }
   // emit event registroAlterado
   emitirEvento() {
     this.objetoAlterado.emit(this.objs)

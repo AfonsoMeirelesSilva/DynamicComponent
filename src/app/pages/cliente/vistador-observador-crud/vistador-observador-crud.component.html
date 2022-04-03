@@ -1,5 +1,7 @@
 
-<H1> Cadastre um novo Vistador ou Observador</H1>
+<H1 *ngIf="!isEdit"> Cadastre um novo Vistador ou Observador</H1>
+<H1 *ngIf="isEdit"> Altere Vistador ou Observador</H1>
+
 <form  [formGroup]="form" (ngSubmit)="inserirRegistro()">
 
 

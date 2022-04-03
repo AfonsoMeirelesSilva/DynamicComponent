@@ -9,10 +9,7 @@ const routes: Routes = [
             
             { path: 'cliente', loadChildren: () => import('../pages/cliente/cliente.module').then(m => m.ClienteModule) },
             { path: 'representantes', loadChildren: () => import('../pages/representantes/representantes.module').then(m => m.RepresentantesModule) },
-            // { path: 'protetico', loadChildren: () => import('app/protetico/protetico.module').then(m => m.ProteticoModule) },
-            // { path: 'financeiro', loadChildren: () => import('app/financeiro/financeiro.module').then(m => m.FinanceiroModule) },
-            // { path: 'ferramentas', loadChildren: () => import('app/ferramentas/ferramentas.module').then(m => m.FerramentasModule) },
-            // { path: 'gerencia', loadChildren: () => import('app/gerencia/gerencia.module').then(m => m.GerenciaModule) }
+            { path: 'scroll', loadChildren: () => import('../pages/scroll/scroll.module').then(m => m.ScrollModule) },
         ]
     }
 ]

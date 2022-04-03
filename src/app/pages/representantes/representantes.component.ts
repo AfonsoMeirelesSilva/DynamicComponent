@@ -13,8 +13,8 @@ export class RepresentantesComponent implements OnInit {
   ngOnInit() {
   }
 
-  paraporra() {
-    this.isLoading = !this.isLoading
+  stopLoader() {
+    // this.isLoading = !this.isLoading
   }
 }
 
